@@ -8,15 +8,16 @@
         <a routerLink="cookies/new">Nouveau Biscuit</a>
       </li>
     </ul>
-    <ul class="nav navbar-nav navbar-right" *ngIf="!isAuth">
-      <li routerLinkActive="active">
+    <ul class="nav navbar-nav navbar-right">
+      <li routerLinkActive="active" *ngIf="!isAuth">
         <a routerLink="auth/signup">Créer un compte</a>
       </li>
       <li routerLinkActive="active" *ngIf="!isAuth">
         <a routerLink="auth/signin">Connexion</a>
       </li>
-      <li routerLinkActive="active" *ngIf="isAuth">
-        <button class="btn btn-primary" type="submit" (click)="onSignOut()">Déconnexion</button>
+      <li *ngIf="isAuth">
+        <a (click)="onSignOut()"
+            style="cursor:pointer">Déconnexion</a>
       </li>
     </ul>
   </div>

@@ -20,9 +20,10 @@ const appRoutes: Routes = [
   { path: 'auth/signup', component: SignupComponent },
   { path: 'auth/signin', component: SigninComponent },
   { path: 'cookies', component: CookieListComponent },
-  { path: 'cookies/new', component: CookieFormComponent }
+  { path: 'cookies/new', canActivate: [AuthGuardService], component: CookieFormComponent },
+  { path: '', redirectTo: 'cookies', pathMatch: 'full' },
+  { path: '**', redirectTo: 'cookie' }
 ];
-
 
 @NgModule({
   declarations: [
