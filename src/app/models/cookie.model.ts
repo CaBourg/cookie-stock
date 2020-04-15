@@ -1,5 +1,4 @@
-export interface Cookie {
+export class Cookie {
   id: number;
-  name: string;
-  quantity: number;
+  constructor(public name: string, public quantity: number) {}
 }
