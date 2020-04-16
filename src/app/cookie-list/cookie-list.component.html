@@ -9,7 +9,7 @@
         <p *ngIf="cookie.quantity>0"
             [ngClass]="{'list-group-item-text': true,
                         'text-danger': cookie.quantity < 10}">Il y a {{ cookie.quantity }} {{ cookie.name }}s.</p>
-        <button class="btn btn-danger pull-right" (click)="onDeleteCookie(cookie)">
+        <button *ngIf="isAuth" class="btn btn-danger pull-right" (click)="onDeleteCookie(cookie)">
           Supprimer
         </button>
       </div>
