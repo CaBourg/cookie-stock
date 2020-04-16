@@ -5,10 +5,13 @@
       <div class="list-group-item"
               *ngFor="let cookie of cookies; let i = index">
         <h3 class="list-group-item-heading">{{ cookie.name }}</h3>
-        <button class="btn btn-primary pull-right" (click)="onDeleteCookie(cookie)">
+        <p class="text-secondary">id : {{ i }}</p>
+        <p *ngIf="cookie.quantity>0"
+            [ngClass]="{'list-group-item-text': true,
+                        'text-danger': cookie.quantity < 10}">Il y a {{ cookie.quantity }} {{ cookie.name }}s.</p>
+        <button class="btn btn-danger pull-right" (click)="onDeleteCookie(cookie)">
           Supprimer
         </button>
-        <p class="list-group-item-text">Il y a {{ cookie.quantity }} {{ cookie.name }}s.</p>
       </div>
     </div>
   </div>
