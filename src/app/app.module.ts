@@ -10,7 +10,6 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { CookieListComponent } from './cookie-list/cookie-list.component';
 import { CookieFormComponent } from './cookie-list/cookie-form/cookie-form.component';
-import { CookieStockComponent } from './cookie-list/cookie-stock/cookie-stock.component';
 import { CookiesService } from './services/cookies.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
@@ -32,8 +31,7 @@ const appRoutes: Routes = [
     SignupComponent,
     SigninComponent,
     CookieListComponent,
-    CookieFormComponent,
-    CookieStockComponent
+    CookieFormComponent
   ],
   imports: [
     BrowserModule,

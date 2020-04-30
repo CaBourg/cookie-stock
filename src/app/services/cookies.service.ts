@@ -12,6 +12,8 @@ export class CookiesService {
   cookiesSubject = new Subject<Cookie[]>();
   cookies: Cookie[] = [];
 
+  database = firebase.database();
+
   dbUrl: string = 'https://cookiestock-7d25f.firebaseio.com/cookies.json'; 
 
   constructor(private httpClient: HttpClient) {

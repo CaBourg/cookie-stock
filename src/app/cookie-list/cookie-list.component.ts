@@ -14,6 +14,7 @@ export class CookieListComponent implements OnInit, OnDestroy {
 
   cookies: Cookie[];
   cookiesSubscription: Subscription;
+  cookie: Cookie;
 
   isAuth: boolean;
 
@@ -37,6 +38,11 @@ export class CookieListComponent implements OnInit, OnDestroy {
         }
       }
     );
+  }
+  
+  onSupply() {
+    this.cookiesService.saveCookies();
+    this.cookiesService.emitCookies();
   }
 
   onDeleteCookie(cookie: Cookie) {

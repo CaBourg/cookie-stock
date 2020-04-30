@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-sm-8">
     <h2>Biscuits</h2>
     <div class="list-group">
       <div class="list-group-item"
@@ -8,10 +8,18 @@
         <p class="text-secondary">id : {{ i }}</p>
         <p *ngIf="cookie.quantity>0"
             [ngClass]="{'list-group-item-text': true,
-                        'text-danger': cookie.quantity < 10}">Il y a {{ cookie.quantity }} {{ cookie.name }}s.</p>
-        <button *ngIf="isAuth" class="btn btn-danger pull-right" (click)="onDeleteCookie(cookie)">
+                        'text-warning': cookie.quantity < 10}">Il y a {{ cookie.quantity }} {{ cookie.name }}s.</p>
+        <p *ngIf="cookie.quantity<=0"
+            class="list-group-item-text text-danger">Il n'y a plus de {{ cookie.name }} en stock !</p>
+        <label for="addQuantity">Nouvelle quantité  </label>
+        <input [(ngModel)]="cookie.quantity" placeholder="{{ cookie.quantity }}" type="number">
+        <button class="btn btn-success" (click)="onSupply()">Enregistrer</button>
+        <hr />
+        <div class="row">
+          <button *ngIf="isAuth" class="btn btn-danger float-right" (click)="onDeleteCookie(cookie)">
           Supprimer
-        </button>
+          </button>
+        </div>
       </div>
     </div>
   </div>
